@@ -55,6 +55,18 @@ The repository includes a ready-to-run Docker Compose setup that provisions Word
 
 Persistent data lives in the named volumes `wordpress_data` (WordPress core + uploads) and `db_data` (database). Local uploads are also mirrored to `./wp-data/uploads`.
 
+### Troubleshooting
+
+- If Apache serves a directory listing or `GET /wp-admin/install.php` returns 404, it means `/var/www/html` never received the WordPress core files. Remove the `wordpress_data` volume so the container can repopulate it:
+
+  ```bash
+  docker compose down
+  docker volume rm hpp-timber_wordpress_data
+  docker compose up -d --build
+  ```
+
+- After WordPress responds successfully over plain HTTP, retrigger Let's Encrypt (e.g. by restarting Traefik or Coolify's proxy) so HTTPS can be reissued.
+
 ## Deployment (Coolify)
 
 1. Connect Coolify to this repository and choose the Docker Compose template.

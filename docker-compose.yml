@@ -23,6 +23,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
       - ./wp-data/uploads:/var/www/html/wp-content/uploads
+      - .:/var/www/html/wp-content/themes/hpp-timber:ro
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/wp-admin/install.php"]
       interval: 30s
