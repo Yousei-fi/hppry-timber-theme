@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto py-10">
+  <h1 class="text-3xl font-bold mb-6">{{ site.name }}</h1>
+  {% for post in posts %}
+    <article class="mb-8">
+      <h2 class="text-xl font-semibold"><a href="{{ post.link }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt }}</p>
+    </article>
+  {% endfor %}
+</div>
+{% endblock %}
+

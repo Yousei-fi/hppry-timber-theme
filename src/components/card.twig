@@ -1,0 +1,22 @@
+<article class="bg-white rounded-lg shadow p-6 hover:shadow-md transition">
+  {% if title %}
+    <h3 class="text-xl font-semibold mb-2">
+      {% if link %}
+        <a href="{{ link }}" class="text-blue-600 hover:underline">{{ title }}</a>
+      {% else %}
+        {{ title }}
+      {% endif %}
+    </h3>
+  {% endif %}
+
+  {% if meta %}
+    <p class="text-sm text-gray-500 mb-2">{{ meta }}</p>
+  {% endif %}
+
+  {% if content %}
+    <div class="text-gray-700">
+      {{ content }}
+    </div>
+  {% endif %}
+</article>
+

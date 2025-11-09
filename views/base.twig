@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+<head>
+  <meta charset="{{ site.charset }}">
+  <title>{{ function('wp_title', '|', true, 'right') }}</title>
+  {{ function('wp_head') }}
+</head>
+<body {{ function('body_class') }}>
+  {% include 'header.twig' with { title: site.name, subtitle: site.description } %}
+  {% include 'partials/menu.twig' %}
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  {% include 'footer.twig' %}
+  {{ function('wp_footer') }}
+</body>
+</html>
+
