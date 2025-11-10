@@ -32,6 +32,8 @@ RUN rm -rf ${THEME_DIR}/docker \
     ${THEME_DIR}/.env.example \
     ${THEME_DIR}/.dockerignore
 
+WORKDIR /var/www/html
+
 # Ensure uploads directory exists with correct permissions
 RUN mkdir -p /var/www/html/wp-content/uploads \
     && chown -R www-data:www-data /usr/src/wordpress/wp-content \
