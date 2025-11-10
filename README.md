@@ -65,6 +65,8 @@ Persistent data lives in the named volumes `wordpress_data` (WordPress core + up
   docker compose up -d --build
   ```
 
+- Do **not** bind-mount the theme over `wp-content/themes/hpp-timber` in production—it's already baked into the image and the mount can block WordPress from copying its core files. For local overrides, create a `docker-compose.override.yml` instead.
+
 - After WordPress responds successfully over plain HTTP, retrigger Let's Encrypt (e.g. by restarting Traefik or Coolify's proxy) so HTTPS can be reissued.
 
 ## Deployment (Coolify)
