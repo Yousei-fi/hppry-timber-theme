@@ -24,7 +24,7 @@ class HPPTheme extends \Timber\Site {
     }
 
     public function add_to_context(array $context): array {
-        $context['menu'] = new \Timber\Menu('main_menu');
+        $context['menu'] = \Timber\Timber::get_menu('main_menu');
         $context['site'] = $this;
 
         return $context;
