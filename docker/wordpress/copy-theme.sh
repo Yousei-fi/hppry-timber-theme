@@ -3,6 +3,11 @@ set -eu
 
 THEME_SOURCE="/usr/src/wordpress/wp-content/themes/hpp-timber"
 THEME_TARGET="/var/www/html/wp-content/themes/hpp-timber"
+UPLOADS_TARGET="/var/www/html/wp-content/uploads"
+
+# Ensure uploads directory exists with correct ownership
+mkdir -p "${UPLOADS_TARGET}"
+chown -R www-data:www-data "${UPLOADS_TARGET}"
 
 echo "[copy-theme] Syncing theme assets..." >&2
 
