@@ -312,7 +312,11 @@ class HPPTheme extends \Timber\Site {
             $page = get_page_by_path($candidate, OBJECT, 'page');
 
             if ($page instanceof \WP_Post) {
-                return new \Timber\Post($page);
+                $post = \Timber\Timber::get_post($page);
+
+                if ($post instanceof \Timber\Post) {
+                    return $post;
+                }
             }
         }
 
