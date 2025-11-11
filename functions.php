@@ -455,12 +455,6 @@ class HPPTheme extends \Timber\Site {
             return;
         }
 
-        $screen = function_exists('get_current_screen') ? get_current_screen() : null;
-
-        if (!$screen || 'page' !== $screen->post_type) {
-            return;
-        }
-
         $script_path = get_template_directory() . '/admin/page-meta-sidebar.js';
 
         if (!file_exists($script_path)) {
